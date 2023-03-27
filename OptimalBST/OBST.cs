@@ -22,6 +22,7 @@
             {
                 // the cost of a subtree with one node is the frequency of that node
                 cost[i, i + 1] = freq[i];
+                Console.WriteLine($"cost[{i},{i + 1}] = {cost[i, i + 1]}");
             }
 
             // Fill in the matrix for subtrees of length 2 to n
@@ -48,7 +49,7 @@
                             cost[i, j] = value;
                         }
                     }
-
+                    Console.WriteLine($"cost[{i},{j}] = {cost[i, j]}");
                 }
             }
             Print2DArray(cost);
@@ -75,6 +76,7 @@
                 if (i != n)
                 {
                     cost[i, i + 1] = cost[i, i] + cost[i + 1, i + 1] + weight[i, i] + pSuccess[i + 1] + pFailure[i + 1];
+                    Console.WriteLine($"cost[{i},{i + 1}] = {cost[i, i + 1]}");
                 }
             }
 
@@ -94,7 +96,7 @@
                             cost[i, j] = value;
                         }
                     }
-
+                    Console.WriteLine($"cost[{i},{j}] = {cost[i, j]}");
                 }
             }
             Print2DArray(cost);
@@ -110,6 +112,7 @@
                 for (int j = i + 1; j <= n; j++)
                 {
                     weight[i, j] = weight[i, j - 1] + pSuccess[j] + pFailure[j];
+                    Console.WriteLine($"weight[{i},{j}] = {weight[i, j]}");
                 }
             }
             return weight;
